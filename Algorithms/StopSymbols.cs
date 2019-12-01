@@ -8,19 +8,21 @@ namespace Algorithms
 {
     public class StopSymbols
     {
-        public static Dictionary<char, int> CalculateTable(string input)
+        protected const char OTHER_CHARACTERS = '*';
+
+        public static Dictionary<char, int> CreateTable(string input)
         {
-            var table = new Dictionary<char, int>();
             string pattern = WithoutLastSymbol(input);
+            var table = new Dictionary<char, int>();
 
             for (int i = 0; i < pattern.Length; i++)
                 table[pattern[i]] = i + 1;
-            table['*'] = 0;
+            table[OTHER_CHARACTERS] = 0;
 
             return table;
         }
 
         protected static string WithoutLastSymbol(string input)
-            => input.Substring(0, input.Length - 1);
+            => input.Remove(input.Length - 1, 1);
     }
 }

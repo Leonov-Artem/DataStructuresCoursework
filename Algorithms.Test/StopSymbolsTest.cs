@@ -24,9 +24,9 @@ namespace Algorithms.Test
                 ['b'] = 2,
                 ['c'] = 7,
                 ['d'] = 6,
-                ['*'] = 0
+                [OTHER_CHARACTERS] = 0
             };
-            var actual = StopSymbols.CalculateTable("abcdadcd");
+            var actual = StopSymbols.CreateTable("abcdadcd");
             CollectionAssert.AreEqual(actual, expected);
         }
     }
