@@ -45,6 +45,7 @@
     <Compile Include="PrefixTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StopSymbolsTest.cs" />
+    <Compile Include="StringExtensionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MSTest.TestAdapter">
