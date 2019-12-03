@@ -8,18 +8,21 @@ namespace Algorithms.Test
     public class StringExtensionTest
     {
         [TestMethod]
-        public void ReverseTest()
+        public void Reverse_OrdinaryInput_Test()
         {
             Assert.AreEqual("hello", "olleh".Reverse());
-            Assert.AreEqual("", "".Reverse());
-            Assert.AreEqual("aaa", "aaa".Reverse());
-            Assert.AreEqual("kek", "kek".Reverse());
         }
 
         [TestMethod]
-        public void t()
+        public void Reverse_EmptyInput_EmptyStringReturned()
         {
-            Suffixes.CreateTable("«колокол");
+            Assert.AreEqual("", "".Reverse());      
+        }
+
+        [TestMethod]
+        public void Reverse_RepeatedCharactersOnly_NothingChanged()
+        {
+            Assert.AreEqual("aaa", "aaa".Reverse());
         }
     }
 }
