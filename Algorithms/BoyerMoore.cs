@@ -29,8 +29,11 @@ namespace Algorithms
                     currentShift += goodSuffix[0];
                 }
                 else
-                    currentShift += Math.Max(goodSuffix[j - 1], 
-                        j - badCharacter[text[currentShift + j - 1]]);
+                    currentShift += Math.Max
+                        (
+                            goodSuffix[j - 1], 
+                            j - badCharacter[text[currentShift + j - 1]]
+                        );
             }
 
             return shifts;
