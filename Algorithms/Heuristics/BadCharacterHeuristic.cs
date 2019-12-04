@@ -18,7 +18,7 @@ namespace Algorithms
             _table = CreateTable(pattern);
         }
 
-        protected Dictionary<char, int> CreateTable(string pattern)
+        private Dictionary<char, int> CreateTable(string pattern)
         {
             var table = new Dictionary<char, int>();
             for (int i = 0; i < pattern.Length; i++)

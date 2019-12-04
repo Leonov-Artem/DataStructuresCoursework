@@ -41,10 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PrefixFunction.cs" />
+    <Compile Include="BoyerMoore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Heuristics\BadCharacterHeuristic.cs" />
-    <Compile Include="StringExtension.cs" />
     <Compile Include="Heuristics\GoodSuffixHeuristic.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
