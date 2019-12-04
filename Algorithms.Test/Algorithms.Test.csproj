@@ -42,6 +42,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoyerMooreTest.cs" />
     <Compile Include="GoodSuffixHeuristicTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BadCharacterHeuristicTest.cs" />
