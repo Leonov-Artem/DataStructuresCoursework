@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Test", "Algorith
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{ACF0581A-C0D8-4642-BE58-24D4C0AE1862}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security", "Security\Security.csproj", "{A0E074D5-2D41-401E-90A9-F60A91A8D38E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security.Test", "Security.Test\Security.Test.csproj", "{774E328F-C346-41F3-BDF8-202E318C3E3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{ACF0581A-C0D8-4642-BE58-24D4C0AE1862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACF0581A-C0D8-4642-BE58-24D4C0AE1862}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACF0581A-C0D8-4642-BE58-24D4C0AE1862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0E074D5-2D41-401E-90A9-F60A91A8D38E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0E074D5-2D41-401E-90A9-F60A91A8D38E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0E074D5-2D41-401E-90A9-F60A91A8D38E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0E074D5-2D41-401E-90A9-F60A91A8D38E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{774E328F-C346-41F3-BDF8-202E318C3E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{774E328F-C346-41F3-BDF8-202E318C3E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{774E328F-C346-41F3-BDF8-202E318C3E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{774E328F-C346-41F3-BDF8-202E318C3E3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
