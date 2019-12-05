@@ -32,15 +32,22 @@ namespace Security.Test
         [TestMethod]
         public void FindTest()
         {
-            Assert.IsTrue(_userManagement.Find("log2"));
-            Assert.IsFalse(_userManagement.Find("log5"));
+            Assert.IsTrue(_userManagement.Find(new User("log2", "pass2")));
+            Assert.IsFalse(_userManagement.Find(new User("log2", "pass3")));
+        }
+
+        [TestMethod]
+        public void FindLoginTest()
+        {
+            Assert.IsTrue(_userManagement.FindLogin("log2"));
+            Assert.IsFalse(_userManagement.FindLogin("log5"));
         }
 
         [TestMethod]
         public void DeleteTest()
         {
             _userManagement.Delete("log2");
-            Assert.IsFalse(_userManagement.Find("log2"));
+            Assert.IsFalse(_userManagement.FindLogin("log2"));
         }
     }
 }
