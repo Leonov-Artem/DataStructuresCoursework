@@ -13,7 +13,7 @@ namespace Security
         static readonly string PATH = "passwords.dat";
 
         BinaryFormatter _binaryFormatter;
-        Dictionary<byte[], byte[]> _users;
+        Dictionary<string, byte[]> _users;
 
         public UserManagement()
         {
@@ -23,7 +23,7 @@ namespace Security
 
         public void Add(User user)
         {
-            if (!Find(user))
+            if (!Find(user.Login))
             {
                 AddUser(user);
                 SaveUserList();
@@ -36,40 +36,33 @@ namespace Security
                 Add(user);
         }
 
-        public void Delete(User user)
+        public void Delete(string login)
         {
-            if (Find(user))
-                DeleteUser(user);
+            if (Find(login))
+            {
+                DeleteUser(login);
+                SaveUserList();
+            }
         }
 
-        public bool Find(User user)
+        public bool Find(string login)
         {
-            var encUser = new EncryptedUser(user);
-            if (_users.ContainsKey(encUser.Login))
+            if (_users.ContainsKey(login))
                 return true;
 
             return false;
         }
 
         public List<string> UserLogins()
-        {
-            var list = new List<string>();
-            foreach(var user in _users)
-            {
-                string login = Security.Decrypt(user.Key);
-                list.Add(login);
-            }
+            => _users.Keys.ToList();
 
-            return list;
-        }
-
-        private Dictionary<byte[], byte[]> GetUserList()
+        private Dictionary<string, byte[]> GetUserList()
         {
-            var users = new Dictionary<byte[], byte[]>();
+            var users = new Dictionary<string, byte[]>();
             using (var fileStream = new FileStream(PATH, FileMode.OpenOrCreate))
             {
                 if (fileStream.Length != 0)
-                    users = (Dictionary<byte[], byte[]>)_binaryFormatter.Deserialize(fileStream);
+                    users = (Dictionary<string, byte[]>)_binaryFormatter.Deserialize(fileStream);
             }
 
             return users;
@@ -86,13 +79,10 @@ namespace Security
         private void AddUser(User user)
         {
             var encUser = new EncryptedUser(user);
-            _users[encUser.Login] = encUser.Password;
+            _users[user.Login] = encUser.Password;
         }
 
-        private void DeleteUser(User user)
-        {
-            var encUser = new EncryptedUser(user);
-            _users.Remove(encUser.Login);
-        }
+        private void DeleteUser(string login)
+            => _users.Remove(login);
     }
 }
