@@ -15,7 +15,7 @@ namespace GUI
     {
         const string ADMIN_LOGIN = "admin";
         const string ADMIN_PASSWORD = "admin";
-        const string ERROR_CAPTION = "Ошибка";
+        const string ERROR = "Ошибка";
 
         UserManagement _userManagement;
 
@@ -37,13 +37,13 @@ namespace GUI
                     ShowMainForm(user);
                 else
                 {
-                    MessageBox.Show("Введите корректный логин и пароль!", ERROR_CAPTION);
+                    MessageBox.Show("Введите корректный логин и пароль!", ERROR);
                     ClearFields();
                 }
             }
             else
             {
-                MessageBox.Show("Введите логин и пароль!", ERROR_CAPTION);
+                MessageBox.Show("Введите логин и пароль!", ERROR);
                 return;
             }
         }

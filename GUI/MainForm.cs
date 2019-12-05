@@ -33,14 +33,10 @@ namespace GUI
 
         }
 
-        private void AddNewUserMenuItem_Click(object sender, EventArgs e)
+        private void AccountsMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void DeleteUserMenuItem_Click(object sender, EventArgs e)
-        {
-
+            var changeAccounts = new ChangeAccounts();
+            changeAccounts.ShowDialog();
         }
     }
 }

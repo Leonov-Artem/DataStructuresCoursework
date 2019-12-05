@@ -32,8 +32,6 @@
             this.clearFieldsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddNewUserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteUserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,27 +64,11 @@
             // 
             // accountsMenuItem
             // 
-            this.accountsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddNewUserMenuItem,
-            this.DeleteUserMenuItem});
             this.accountsMenuItem.Name = "accountsMenuItem";
             this.accountsMenuItem.Size = new System.Drawing.Size(124, 23);
             this.accountsMenuItem.Text = "Учетные записи";
             this.accountsMenuItem.Visible = false;
-            // 
-            // AddNewUserMenuItem
-            // 
-            this.AddNewUserMenuItem.Name = "AddNewUserMenuItem";
-            this.AddNewUserMenuItem.Size = new System.Drawing.Size(236, 24);
-            this.AddNewUserMenuItem.Text = "Добавить пользователя";
-            this.AddNewUserMenuItem.Click += new System.EventHandler(this.AddNewUserMenuItem_Click);
-            // 
-            // DeleteUserMenuItem
-            // 
-            this.DeleteUserMenuItem.Name = "DeleteUserMenuItem";
-            this.DeleteUserMenuItem.Size = new System.Drawing.Size(236, 24);
-            this.DeleteUserMenuItem.Text = "Удалить пользователя";
-            this.DeleteUserMenuItem.Click += new System.EventHandler(this.DeleteUserMenuItem_Click);
+            this.accountsMenuItem.Click += new System.EventHandler(this.AccountsMenuItem_Click);
             // 
             // MainForm
             // 
@@ -113,7 +95,5 @@
         private System.Windows.Forms.ToolStripMenuItem clearFieldsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AddNewUserMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DeleteUserMenuItem;
     }
 }
