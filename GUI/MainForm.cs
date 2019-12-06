@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Algorithms;
 
 namespace GUI
 {
@@ -38,5 +39,22 @@ namespace GUI
             var changeAccounts = new ChangeAccounts();
             changeAccounts.ShowDialog();
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            string text = TextFromRichTextBox();
+            string pattern = PatternFromTextBox();
+            var list = BoyerMoore.Find(text, pattern);
+            MessageBox.Show($"Подстрока {pattern} найдена со сдвигом {list[0]}", "");
+
+            this.text.Select(list[0], pattern.Length);
+            this.text.SelectionColor = Color.Red;
+        }
+
+        private string PatternFromTextBox()
+            => pattern.Text;
+
+        private string TextFromRichTextBox()
+            => text.Text;
     }
 }
