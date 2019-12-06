@@ -65,6 +65,8 @@ namespace GUI
                 MessageBox.Show("Выберите строку из списка!", "Ошибка!");
         }
 
+        #region methods
+
         private bool AddNewUser(User user)
         {
             if (!_userManagement.FindLogin(user.Login))
@@ -104,5 +106,7 @@ namespace GUI
             if (listBox1.Items.Count != 0)
                 listBox1.Items.Clear();
         }
+
+        #endregion
     }
 }

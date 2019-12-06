@@ -7,19 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
 using Algorithms;
 
 namespace GUI
 {
     public partial class MainForm : Form
     {
+        readonly FontFamily FONT_FAMILY = new FontFamily(GenericFontFamilies.Monospace);
+        const float FONT_SIZE = 12;
+        const string NOTIFICATION = "Уведомление";
+
         public MainForm(AccessType accessType)
         {
             InitializeComponent();
 
             if (accessType == AccessType.Admin)
                 accountsMenuItem.Visible = true;
+
+            patternTextBox.Font = new Font(FONT_FAMILY, FONT_SIZE);
+            textRichTextBox.Font = new Font(FONT_FAMILY, FONT_SIZE);
         }
+
+        #region handlers
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
             => Application.Exit();
@@ -40,21 +50,52 @@ namespace GUI
             changeAccounts.ShowDialog();
         }
 
-        private void SearchButton_Click(object sender, EventArgs e)
+        private void MainForm_TextChanged(object sender, EventArgs e)
         {
+            SetDefaultBackgroundTextColor();
+
             string text = TextFromRichTextBox();
             string pattern = PatternFromTextBox();
-            var list = BoyerMoore.Find(text, pattern);
-            MessageBox.Show($"Подстрока {pattern} найдена со сдвигом {list[0]}", "");
 
-            this.text.Select(list[0], pattern.Length);
-            this.text.SelectionColor = Color.Red;
+            if (text != "" && pattern != "")
+            {
+                var shifts = BoyerMoore.Find(text, pattern);
+                ShowFound(pattern, shifts);
+            }
         }
 
+        #endregion
+
+        #region methods
+
         private string PatternFromTextBox()
-            => pattern.Text;
+            => patternTextBox.Text;
 
         private string TextFromRichTextBox()
-            => text.Text;
+            => textRichTextBox.Text;
+
+        private void ShowFound(string pattern, List<int> shifts)
+        {
+            if (shifts.Count != 0)
+            {
+                foreach(var shift in shifts)
+                {
+                    textRichTextBox.Select(shift, pattern.Length);
+                    textRichTextBox.SelectionBackColor = Color.Yellow;
+                    textRichTextBox.SelectionLength = 0;
+                    textRichTextBox.SelectionStart = textRichTextBox.Text.Length;
+                }
+            }
+        }
+
+        private void SetDefaultBackgroundTextColor()
+        {
+            textRichTextBox.SelectAll();
+            textRichTextBox.SelectionBackColor = Color.White;
+            textRichTextBox.SelectionLength = 0;
+            textRichTextBox.SelectionStart = textRichTextBox.Text.Length;
+        }
+
+        #endregion
     }
 }
