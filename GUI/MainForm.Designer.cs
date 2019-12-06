@@ -36,6 +36,7 @@
             this.patternTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.coincidenceLabel = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,14 +56,14 @@
             // clearFieldsMenuItem
             // 
             this.clearFieldsMenuItem.Name = "clearFieldsMenuItem";
-            this.clearFieldsMenuItem.Size = new System.Drawing.Size(117, 23);
+            this.clearFieldsMenuItem.Size = new System.Drawing.Size(117, 24);
             this.clearFieldsMenuItem.Text = "Очистить поля";
             this.clearFieldsMenuItem.Click += new System.EventHandler(this.ClearFieldsMenuItem_Click);
             // 
             // helpMenuItem
             // 
             this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.Size = new System.Drawing.Size(76, 23);
+            this.helpMenuItem.Size = new System.Drawing.Size(76, 24);
             this.helpMenuItem.Text = "Справка";
             this.helpMenuItem.Click += new System.EventHandler(this.HelpMenuItem_Click);
             // 
@@ -112,11 +113,22 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Текст";
             // 
+            // coincidenceLabel
+            // 
+            this.coincidenceLabel.AutoSize = true;
+            this.coincidenceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.coincidenceLabel.Location = new System.Drawing.Point(14, 371);
+            this.coincidenceLabel.Name = "coincidenceLabel";
+            this.coincidenceLabel.Size = new System.Drawing.Size(120, 20);
+            this.coincidenceLabel.TabIndex = 5;
+            this.coincidenceLabel.Text = "Совпадений: 0";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 374);
+            this.ClientSize = new System.Drawing.Size(513, 403);
+            this.Controls.Add(this.coincidenceLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.patternTextBox);
@@ -146,5 +158,6 @@
         private System.Windows.Forms.TextBox patternTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label coincidenceLabel;
     }
 }

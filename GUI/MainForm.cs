@@ -36,7 +36,8 @@ namespace GUI
 
         private void ClearFieldsMenuItem_Click(object sender, EventArgs e)
         {
-
+            patternTextBox.Text = "";
+            textRichTextBox.Text = "";
         }
 
         private void HelpMenuItem_Click(object sender, EventArgs e)
@@ -60,8 +61,11 @@ namespace GUI
             if (text != "" && pattern != "")
             {
                 var shifts = BoyerMoore.Find(text, pattern);
+                coincidenceLabel.Text = $"Совпадений: {shifts.Count}";
                 ShowFound(pattern, shifts);
             }
+            else
+                coincidenceLabel.Text = $"Совпадений: {0}";
         }
 
         #endregion
@@ -78,7 +82,7 @@ namespace GUI
         {
             if (shifts.Count != 0)
             {
-                foreach(var shift in shifts)
+                foreach (var shift in shifts)
                 {
                     textRichTextBox.Select(shift, pattern.Length);
                     textRichTextBox.SelectionBackColor = Color.Yellow;
