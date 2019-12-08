@@ -35,8 +35,8 @@ namespace GUI
                 var user = new User(login, password);
                 if (AddNewUser(user))
                 {
-                    MessageBox.Show("Пользователь добавлен!", NOTIFICATION);
                     AddItemsToListBox();
+                    MessageBox.Show("Пользователь добавлен!", NOTIFICATION);
                 }
                 else
                 {

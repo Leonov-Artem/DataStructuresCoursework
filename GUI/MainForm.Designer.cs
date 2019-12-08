@@ -31,6 +31,8 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.clearFieldsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ignoreCaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textRichTextBox = new System.Windows.Forms.RichTextBox();
             this.patternTextBox = new System.Windows.Forms.TextBox();
@@ -38,8 +40,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.coincidenceLabel = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ignoreCaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,9 +48,9 @@
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearFieldsMenuItem,
-            this.helpMenuItem,
             this.settingsMenuItem,
-            this.accountsMenuItem});
+            this.accountsMenuItem,
+            this.helpMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(513, 27);
@@ -70,6 +70,22 @@
             this.helpMenuItem.Size = new System.Drawing.Size(76, 23);
             this.helpMenuItem.Text = "Справка";
             this.helpMenuItem.Click += new System.EventHandler(this.HelpMenuItem_Click);
+            // 
+            // settingsMenuItem
+            // 
+            this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ignoreCaseMenuItem});
+            this.settingsMenuItem.Name = "settingsMenuItem";
+            this.settingsMenuItem.Size = new System.Drawing.Size(91, 23);
+            this.settingsMenuItem.Text = "Настройки";
+            // 
+            // ignoreCaseMenuItem
+            // 
+            this.ignoreCaseMenuItem.CheckOnClick = true;
+            this.ignoreCaseMenuItem.Name = "ignoreCaseMenuItem";
+            this.ignoreCaseMenuItem.Size = new System.Drawing.Size(228, 24);
+            this.ignoreCaseMenuItem.Text = "Игнорировать регистр";
+            this.ignoreCaseMenuItem.Click += new System.EventHandler(this.IgnoreCaseMenuItem_Click);
             // 
             // accountsMenuItem
             // 
@@ -126,22 +142,6 @@
             this.coincidenceLabel.Size = new System.Drawing.Size(120, 20);
             this.coincidenceLabel.TabIndex = 5;
             this.coincidenceLabel.Text = "Совпадений: 0";
-            // 
-            // settingsMenuItem
-            // 
-            this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ignoreCaseMenuItem});
-            this.settingsMenuItem.Name = "settingsMenuItem";
-            this.settingsMenuItem.Size = new System.Drawing.Size(91, 23);
-            this.settingsMenuItem.Text = "Настройки";
-            // 
-            // ignoreCaseMenuItem
-            // 
-            this.ignoreCaseMenuItem.CheckOnClick = true;
-            this.ignoreCaseMenuItem.Name = "ignoreCaseMenuItem";
-            this.ignoreCaseMenuItem.Size = new System.Drawing.Size(228, 24);
-            this.ignoreCaseMenuItem.Text = "Игнорировать регистр";
-            this.ignoreCaseMenuItem.Click += new System.EventHandler(this.IgnoreCaseMenuItem_Click);
             // 
             // MainForm
             // 
