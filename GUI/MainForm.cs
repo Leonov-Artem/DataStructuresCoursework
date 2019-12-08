@@ -17,6 +17,8 @@ namespace GUI
         readonly FontFamily FONT_FAMILY = new FontFamily(GenericFontFamilies.Monospace);
         const float FONT_SIZE = 12;
         const string NOTIFICATION = "Уведомление";
+        const string helpName = "Help.chm";
+        readonly string URL = Application.StartupPath + $"\\{helpName}";
 
         public MainForm(AccessType accessType)
         {
@@ -41,9 +43,7 @@ namespace GUI
         }
 
         private void HelpMenuItem_Click(object sender, EventArgs e)
-        {
-            //Help.ShowHelp(this, @"C:\Users\Artem\Desktop\Title of this help project.chm");
-        }
+            => Help.ShowHelp(this, URL);
 
         private void AccountsMenuItem_Click(object sender, EventArgs e)
         {
