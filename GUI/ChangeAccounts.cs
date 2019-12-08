@@ -39,16 +39,13 @@ namespace GUI
                     MessageBox.Show("Пользователь добавлен!", NOTIFICATION);
                 }
                 else
-                {
                     MessageBox.Show("Пользователь с таким логином уже существует!", ERROR);
-                    ClearFields();
-                }
             }
             else
-            {
                 MessageBox.Show("Введите логин и пароль!", ERROR);
-                ClearFields();
-            }
+
+            ClearFields();
+
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
