@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.coincidenceLabel = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ignoreCaseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +49,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearFieldsMenuItem,
             this.helpMenuItem,
+            this.settingsMenuItem,
             this.accountsMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -57,14 +60,14 @@
             // clearFieldsMenuItem
             // 
             this.clearFieldsMenuItem.Name = "clearFieldsMenuItem";
-            this.clearFieldsMenuItem.Size = new System.Drawing.Size(117, 24);
+            this.clearFieldsMenuItem.Size = new System.Drawing.Size(117, 23);
             this.clearFieldsMenuItem.Text = "Очистить поля";
             this.clearFieldsMenuItem.Click += new System.EventHandler(this.ClearFieldsMenuItem_Click);
             // 
             // helpMenuItem
             // 
             this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.helpMenuItem.Size = new System.Drawing.Size(76, 23);
             this.helpMenuItem.Text = "Справка";
             this.helpMenuItem.Click += new System.EventHandler(this.HelpMenuItem_Click);
             // 
@@ -124,6 +127,22 @@
             this.coincidenceLabel.TabIndex = 5;
             this.coincidenceLabel.Text = "Совпадений: 0";
             // 
+            // settingsMenuItem
+            // 
+            this.settingsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ignoreCaseMenuItem});
+            this.settingsMenuItem.Name = "settingsMenuItem";
+            this.settingsMenuItem.Size = new System.Drawing.Size(91, 23);
+            this.settingsMenuItem.Text = "Настройки";
+            // 
+            // ignoreCaseMenuItem
+            // 
+            this.ignoreCaseMenuItem.CheckOnClick = true;
+            this.ignoreCaseMenuItem.Name = "ignoreCaseMenuItem";
+            this.ignoreCaseMenuItem.Size = new System.Drawing.Size(228, 24);
+            this.ignoreCaseMenuItem.Text = "Игнорировать регистр";
+            this.ignoreCaseMenuItem.Click += new System.EventHandler(this.IgnoreCaseMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,5 +180,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label coincidenceLabel;
         private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.ToolStripMenuItem settingsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ignoreCaseMenuItem;
     }
 }

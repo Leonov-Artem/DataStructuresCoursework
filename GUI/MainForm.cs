@@ -51,26 +51,28 @@ namespace GUI
             changeAccounts.ShowDialog();
         }
 
+        private void IgnoreCaseMenuItem_Click(object sender, EventArgs e)
+            => StartAlgorithm();
+
         private void MainForm_TextChanged(object sender, EventArgs e)
-        {
-            SetDefaultBackgroundTextColor();
-
-            string text = TextFromRichTextBox();
-            string pattern = PatternFromTextBox();
-
-            if (text != "" && pattern != "")
-            {
-                var shifts = BoyerMoore.Find(text, pattern);
-                coincidenceLabel.Text = $"Совпадений: {shifts.Count}";
-                ShowFound(pattern, shifts);
-            }
-            else
-                coincidenceLabel.Text = $"Совпадений: {0}";
-        }
+            => StartAlgorithm();
 
         #endregion
 
         #region methods
+
+        private void RemoveSelection()
+        {
+            textRichTextBox.SelectionLength = 0;
+            textRichTextBox.SelectionStart = textRichTextBox.Text.Length;
+        }
+
+        private void SetDefaultBackgroundTextColor()
+        {
+            textRichTextBox.SelectAll();
+            textRichTextBox.SelectionBackColor = Color.White;
+            RemoveSelection();
+        }
 
         private string PatternFromTextBox()
             => patternTextBox.Text;
@@ -86,18 +88,34 @@ namespace GUI
                 {
                     textRichTextBox.Select(shift, pattern.Length);
                     textRichTextBox.SelectionBackColor = Color.Yellow;
-                    textRichTextBox.SelectionLength = 0;
-                    textRichTextBox.SelectionStart = textRichTextBox.Text.Length;
+                    RemoveSelection();
                 }
             }
         }
 
-        private void SetDefaultBackgroundTextColor()
+        private void FindSubstringsAndShow(bool ignoreCase = false)
         {
-            textRichTextBox.SelectAll();
-            textRichTextBox.SelectionBackColor = Color.White;
-            textRichTextBox.SelectionLength = 0;
-            textRichTextBox.SelectionStart = textRichTextBox.Text.Length;
+            SetDefaultBackgroundTextColor();
+
+            string text = TextFromRichTextBox();
+            string pattern = PatternFromTextBox();
+
+            if (text != "" && pattern != "")
+            {
+                var shifts = BoyerMoore.Find(text, pattern, ignoreCase);
+                coincidenceLabel.Text = $"Совпадений: {shifts.Count}";
+                ShowFound(pattern, shifts);
+            }
+            else
+                coincidenceLabel.Text = $"Совпадений: {0}";
+        }
+
+        private void StartAlgorithm()
+        {
+            if (ignoreCaseMenuItem.CheckState == CheckState.Checked)
+                FindSubstringsAndShow(ignoreCase: true);
+            else
+                FindSubstringsAndShow();
         }
 
         #endregion
