@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.coincidenceLabel = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,5 +160,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label coincidenceLabel;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

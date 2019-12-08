@@ -8,15 +8,21 @@ namespace Algorithms
 {
     public class BoyerMoore
     {
-        public static List<int> Find(string text, string pattern)
+        public static List<int> Find(string text, string pattern, bool ignoreCase=false)
         {
+            if (ignoreCase)
+            {
+                text = text.ToLower();
+                pattern = pattern.ToLower();
+            }
+
             int MAX_POSSIBLE_SHIFT = text.Length - pattern.Length;
             var shifts = new List<int>();
 
             var badCharacter = ComputeBadCharacter(pattern);
             int[] goodSuffix = ComputeGoodSuffix(pattern);
             int currentShift = 0;
-
+            
             while (currentShift <= MAX_POSSIBLE_SHIFT)
             {
                 int j = pattern.Length;

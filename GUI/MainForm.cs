@@ -42,7 +42,7 @@ namespace GUI
 
         private void HelpMenuItem_Click(object sender, EventArgs e)
         {
-
+            //Help.ShowHelp(this, @"C:\Users\Artem\Desktop\Title of this help project.chm");
         }
 
         private void AccountsMenuItem_Click(object sender, EventArgs e)
